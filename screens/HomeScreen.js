@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import Icon from 'react-native-feather1s'
+import { themeColors } from '../theme'
+import Categories from '../components/Categories'
 
 const HomeScreen = () => {
     return (
@@ -44,11 +46,22 @@ const HomeScreen = () => {
                     <Icon 
                         name="sliders"
                         size={20}
-                        color="#999999"
+                        color="#ffffff"
                         thin={false}
                     />
                 </View>
             </View>
+
+            {/* main */}
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingBottom: 20
+                }}
+            >
+                {/* categories */}
+                <Categories />
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -62,7 +75,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         gap: 8,
         marginHorizontal: 8,
-        paddingHorizontal: 4,
+        paddingHorizontal: 6,
     },
     inputSearch: {
         flex: 1,
@@ -96,7 +109,7 @@ const styles = StyleSheet.create({
     },
     slidersRounded: {
         padding: 12,
-        backgroundColor: '#eaeaea',
+        backgroundColor: themeColors.bgColor(1),
         borderRadius: 50
     }
 })
